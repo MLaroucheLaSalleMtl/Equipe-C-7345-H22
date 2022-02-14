@@ -18,11 +18,4 @@ public class DamageEnnemy : MonoBehaviour
        
     }
 
-    private void OnParticleCollision(GameObject other)
-    {
-        //if (other.gameObject.tag == "Ennemy")
-        //{
-        //    other.gameObject.GetComponent<EnemyHealth>().EnnemyHurt(damageToGive);
-        //}
-    }
 }
