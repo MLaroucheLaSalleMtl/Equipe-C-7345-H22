@@ -36,7 +36,16 @@ public class EnemyHealth : MonoBehaviour
             health = maxHealth;
         }
     }
-
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "Player")
+        {
+            if (health > 0)
+            {
+                health -= 25f;
+            }
+        }
+    }
     float CalculateHealth()
     {
         return health / maxHealth;
