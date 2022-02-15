@@ -50,9 +50,4 @@ public class EnemyHealth : MonoBehaviour
     {
         return health / maxHealth;
     }
-
-    public void TakeDamage(float damage)
-    {
-        health -= damage;
-    }
 }
