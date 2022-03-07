@@ -28,6 +28,7 @@ public class EnemyHealth : MonoBehaviour
 
         if (health <= 0)
         {
+            QuestManager.questManager.AddQuestItem("Kill slimes", 1);
             Destroy(gameObject);
         }
 

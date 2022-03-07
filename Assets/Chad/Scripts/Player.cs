@@ -83,13 +83,11 @@ public class Player : MonoBehaviour
         {
             if (focus != null)
                 focus.OnDeFocused();
-
+            
             focus = newFocus;
             FollowTarget(newFocus);
         }
-
         newFocus.OnFocused(transform);
- 
     }
 
     void RemoveFocus ()

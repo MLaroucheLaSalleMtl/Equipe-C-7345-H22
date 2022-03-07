@@ -25,7 +25,7 @@ public class PlayerHealth : MonoBehaviour
             {
                 health -= 15f;
             }
-            else
+            else if (health <= 0)
                 // Restart to the current level
                 SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }

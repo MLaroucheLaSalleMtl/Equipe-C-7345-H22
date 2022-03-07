@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 700179787733540219}
   - component: {fileID: 700179787733540216}
   - component: {fileID: 700179787733540161}
+  - component: {fileID: 4821096660000691767}
   - component: {fileID: 700179787733540166}
   m_Layer: 0
   m_Name: Player
@@ -129,6 +130,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8080462a8cdd09c49a71ca9eb4dfe7d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  focus: {fileID: 0}
   whatCanBeClickedOn:
     serializedVersion: 2
     m_Bits: 256
@@ -161,6 +163,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mana: 100
   maxMana: 100
+--- !u!114 &4821096660000691767
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 700179787733540217}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf49a07a44e38c544b4e375dc7a01f3b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  thePlayer: {fileID: 0}
 --- !u!195 &700179787733540166
 NavMeshAgent:
   m_ObjectHideFlags: 0

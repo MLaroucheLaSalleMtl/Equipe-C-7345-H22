@@ -17,7 +17,12 @@ public class QuestObject : MonoBehaviour
     public Sprite questAvailableSprite;
     public Sprite questReceivableSprite;
 
-    void SetQuestMarker()
+    private void Start()
+    {
+        SetQuestMarker();
+    }
+
+    public void SetQuestMarker()
     {
         if(QuestManager.questManager.CheckCompletedQuests(this))
         {
@@ -34,6 +39,10 @@ public class QuestObject : MonoBehaviour
             questMarker.SetActive(true);
             theImage.sprite = questReceivableSprite;
         }
+        else
+        {
+            questMarker.SetActive(false);
+        }
     }
 
     void Update()
@@ -41,6 +50,8 @@ public class QuestObject : MonoBehaviour
         if(inTrigger && Input.GetKeyDown(KeyCode.E))
         {
             // Quest UI Manager
+            QuestUIManager.uiManager.CheckQuest(this);
+            //QuestManager.questManager.QuestRequest(this);
         }
     }
 

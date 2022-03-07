@@ -5,7 +5,8 @@ using UnityEngine;
 public class AttackSword : MonoBehaviour
 {
     public BoxCollider AttackCollider;
-    
+
+    public float damage = 50f;
 
     // Start is called before the first frame update
     void Start()
@@ -18,4 +19,6 @@ public class AttackSword : MonoBehaviour
     {
         
     }
+
+
 }
