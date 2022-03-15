@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class PlayerHealth : MonoBehaviour
 {
+    public GameObject deathScript;
+
     public float health;
     public float maxHealth;
     public float damage;
@@ -26,8 +28,8 @@ public class PlayerHealth : MonoBehaviour
                 health -= 15f;
             }
             else if (health <= 0)
-                // Restart to the current level
-                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+                // Death function
+                deathScript.GetComponent<DeathScreen>().DeathScreenScript();
         }
     }
 }

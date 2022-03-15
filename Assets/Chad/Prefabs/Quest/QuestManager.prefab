@@ -48,14 +48,14 @@ MonoBehaviour:
   - title: Slimes Cleaning
     id: 1
     progress: 1
-    description: Clear the area from those nasty slimes
+    description: Clear the area from those nasty slimes.
     hint: Kill three slimes
-    congraluation: Congraluation warrior !
+    congraluation: 'Congraluation warrior ! '
     summary: 
     nextQuest: 0
     questObjective: Kill slimes
     questObjectiveCount: 0
-    questObjectiveRequirement: 1
+    questObjectiveRequirement: 3
     expReward: 0
     goldReward: 0
     itemReward: 

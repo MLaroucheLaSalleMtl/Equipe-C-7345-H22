@@ -12,7 +12,7 @@ public class QuestUIManager : MonoBehaviour
     public bool questAvailable = false;
     public bool questRunning = false;
     private bool questPanelActive = false;
-    private bool questLogActive = false;
+    private bool questLogPanelActive = false;
 
     //PANELS
     public GameObject questPanel;
@@ -30,8 +30,8 @@ public class QuestUIManager : MonoBehaviour
     public GameObject qLogButton;
     private List <GameObject> qButtons = new List<GameObject>();
 
-    private GameObject acceptButton;
-    private GameObject completeButton;
+    public GameObject acceptButton;
+    public GameObject completeButton;
 
     //SPACER
     public Transform qButtonSpacer1; // qButton available
@@ -47,6 +47,21 @@ public class QuestUIManager : MonoBehaviour
     public TMP_Text questLogTitle;
     public TMP_Text questLogDescription;
     public TMP_Text questLogSummary;
+
+    public QButtonScript acceptButtonScript;
+    public QButtonScript completeButtonScript;
+
+    private void Start()
+    {
+        acceptButton = GameObject.Find("QuestCanvas").transform.Find("QuestPanel").transform.Find("QuestDescription").transform.Find("GameObject").transform.Find("AcceptButton").gameObject;
+        acceptButtonScript = acceptButton.GetComponent<QButtonScript>();
+
+        completeButton = GameObject.Find("QuestCanvas").transform.Find("QuestPanel").transform.Find("QuestDescription").transform.Find("GameObject").transform.Find("CompleteButton").gameObject;
+        completeButtonScript = completeButton.GetComponent<QButtonScript>();
+
+        acceptButton.SetActive(false);
+        completeButton.SetActive(false);
+    }
 
     private void Awake()
     {
@@ -68,8 +83,14 @@ public class QuestUIManager : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.J))
         {
-            questPanelActive = !questPanelActive;
-            // Show QuestLog Pannel
+            questLogPanelActive = !questLogPanelActive;
+            ShowQuestLogPanel();
+
+            if (questLogPanelActive == false)
+            {
+                // RESUME GAME 
+                Time.timeScale = 1f;
+            }
         }
     }
 
@@ -95,10 +116,52 @@ public class QuestUIManager : MonoBehaviour
         questPanel.SetActive(questPanelActive);
         // FILL IN DATA
         FillQuestButtons();
+        
+        // PAUSE GAME
+        Time.timeScale = 0f;
     }
 
-    // QUEST LOG 
+    public void ShowQuestLogPanel()
+    {
+        questLogPanel.SetActive(questLogPanelActive);
+        if(questLogPanelActive && !questPanelActive)
+        {
+            foreach(Quest curQuest in QuestManager.questManager.currentQuestList)
+            {
+                GameObject questButton = Instantiate(qLogButton);
+                QLogButtonScript qbutton = questButton.GetComponent<QLogButtonScript>();
 
+                qbutton.questID = curQuest.id;
+                qbutton.questTitle.text = curQuest.title;
+
+                questButton.transform.SetParent(qLogButtonSpacer, false);
+                qButtons.Add(questButton);
+            }
+        }
+        else if (!questLogPanelActive && !questPanelActive)
+        {
+            HideQuestLogPanel();
+        }
+
+        // PAUSE THE GAME
+        Time.timeScale = 0f;
+    }
+
+    //SHOW QUEST LOG 
+    public void ShowQuestLog(Quest activeQuest)
+    {
+        questLogTitle.text = activeQuest.title;
+        if(activeQuest.progress == Quest.QuestProgress.ACCEPTED)
+        {
+            questDescription.text = activeQuest.hint;
+            questLogSummary.text = activeQuest.questObjective + " : " + activeQuest.questObjectiveCount + " / " + activeQuest.questObjectiveRequirement;
+        }
+        else if (activeQuest.progress == Quest.QuestProgress.COMPLETE)
+        {
+            questLogDescription.text = activeQuest.congraluation;
+            questLogSummary.text = activeQuest.questObjective + " : " + activeQuest.questObjectiveCount + " / " + activeQuest.questObjectiveRequirement;
+        }
+    }
 
     // HIDE QUEST PANEL
     public void HideQuestPanel()
@@ -125,6 +188,28 @@ public class QuestUIManager : MonoBehaviour
 
         // HIDE PANEL
         questPanel.SetActive(questPanelActive);
+
+        // RESUME GAME
+        Time.timeScale = 1f;
+    }
+
+    //HIDE QUEST LOG PANEL 
+    public void HideQuestLogPanel()
+    {
+        questLogPanelActive = false;
+
+        questLogTitle.text = "";
+        questLogDescription.text = "";
+        questLogSummary.text = "";
+
+        // CLEAR BUTTON LIST 
+        for(int i = 0; i < qButtons.Count; i++)
+        {
+            Destroy(qButtons[i]);
+        }
+
+        qButtons.Clear();
+        questLogPanel.SetActive(questLogPanelActive);
     }
 
     // FILL BUTTONS FOR QUEST PANEL

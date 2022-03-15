@@ -9,24 +9,6 @@ public class QButtonScript : MonoBehaviour
     public int questID;
     public TMP_Text questTitle;
 
-    private GameObject acceptButton;
-    private GameObject completeButton;
-
-    private QButtonScript acceptButtonScript;
-    private QButtonScript completeButtonScript;
-
-    private void Start()
-    {
-        acceptButton = GameObject.Find("QuestCanvas").transform.Find("QuestPanel").transform.Find("QuestDescription").transform.Find("GameObject").transform.Find("AcceptButton").gameObject;
-        acceptButtonScript = acceptButton.GetComponent<QButtonScript>();
-
-        completeButton = GameObject.Find("QuestCanvas").transform.Find("QuestPanel").transform.Find("QuestDescription").transform.Find("GameObject").transform.Find("CompleteButton").gameObject;
-        completeButtonScript = completeButton.GetComponent<QButtonScript>();
-
-        acceptButton.SetActive(false);
-        completeButton.SetActive(false);
-    }
-
     // SHOW ALL INFOS
     public void ShowAllInfos()
     {
@@ -34,22 +16,22 @@ public class QButtonScript : MonoBehaviour
         // ACCEPT BUTTON
         if(QuestManager.questManager.RequestAvailableQuest(questID))
         {
-            acceptButton.SetActive(true);
-            acceptButtonScript.questID = questID;
+            QuestUIManager.uiManager.acceptButton.SetActive(true);
+            QuestUIManager.uiManager.acceptButtonScript.questID = questID;
         }
         else
         {
-            acceptButton.SetActive(false);
+            QuestUIManager.uiManager.acceptButton.SetActive(false);
         }
         // COMPLETE BUTTON
         if (QuestManager.questManager.RequestCompleteQuest(questID))
         {
-            completeButton.SetActive(true);
-            completeButtonScript.questID = questID;
+            QuestUIManager.uiManager.completeButton.SetActive(true);
+            QuestUIManager.uiManager.completeButtonScript.questID = questID;
         }
         else
         {
-            completeButton.SetActive(false);
+            QuestUIManager.uiManager.completeButton.SetActive(false);
         }
     }
 
@@ -81,5 +63,7 @@ public class QButtonScript : MonoBehaviour
     public void ClosePanel()
     {
         QuestUIManager.uiManager.HideQuestPanel();
+        QuestUIManager.uiManager.acceptButton.SetActive(false);
+        QuestUIManager.uiManager.completeButton.SetActive(false);
     }
 }

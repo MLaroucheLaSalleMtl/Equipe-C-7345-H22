@@ -215,4 +215,16 @@ public class QuestManager : MonoBehaviour
         return false;
     }
 
+    //SHOW QUEST LOG 
+    public void ShowQuestLog(int questID)
+    {
+        for (int i = 0; i < currentQuestList.Count; i++)
+        {
+            if(currentQuestList[i].id == questID)
+            {
+                QuestUIManager.uiManager.ShowQuestLog(currentQuestList[i]);
+            }
+        }
+    }
+
 }
