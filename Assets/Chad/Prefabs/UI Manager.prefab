@@ -171,7 +171,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 8963367400620327771}
+  m_Father: {fileID: 7691319324609303105}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2755693606507995261
@@ -1848,21 +1848,21 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8963367400553852477}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1.195, y: 1.195, z: 1.195}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8963367401366557032}
   - {fileID: 8650174255113645609}
-  m_Father: {fileID: 8963367400620327771}
+  m_Father: {fileID: 7691319324609303105}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
-  m_Pivot: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 478, y: 453}
+  m_SizeDelta: {x: 799.99994, y: 758.15894}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &8963367400553852473
 Canvas:
   m_ObjectHideFlags: 0
@@ -1932,8 +1932,10 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 8963367400620327771}
+  - component: {fileID: 7691319324609303105}
   - component: {fileID: 1554293187434513654}
+  - component: {fileID: 4460275126142722512}
+  - component: {fileID: 9003201799352706256}
   m_Layer: 0
   m_Name: UI Manager
   m_TagString: Untagged
@@ -1941,8 +1943,8 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &8963367400620327771
-Transform:
+--- !u!224 &7691319324609303105
+RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -1950,7 +1952,7 @@ Transform:
   m_GameObject: {fileID: 8963367400620327768}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8963367400553852476}
@@ -1958,6 +1960,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0, y: 0}
 --- !u!114 &1554293187434513654
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1978,6 +1985,8 @@ MonoBehaviour:
   activeQuests: []
   qButton: {fileID: 7357102397560994074, guid: 533a7178c7c635542a684ba52a7235b3, type: 3}
   qLogButton: {fileID: 7357102397560994074, guid: a5a35325598deec4b9e36aa52b0e35d2, type: 3}
+  acceptButton: {fileID: 0}
+  completeButton: {fileID: 0}
   qButtonSpacer1: {fileID: 8963367400776025338}
   qButtonSpacer2: {fileID: 8963367401198216754}
   qLogButtonSpacer: {fileID: 2820008556629365133}
@@ -1987,6 +1996,52 @@ MonoBehaviour:
   questLogTitle: {fileID: 5124671962396022233}
   questLogDescription: {fileID: 7672906213658934559}
   questLogSummary: {fileID: 111640869004059424}
+  acceptButtonScript: {fileID: 0}
+  completeButtonScript: {fileID: 0}
+--- !u!223 &4460275126142722512
+Canvas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8963367400620327768}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_RenderMode: 0
+  m_Camera: {fileID: 0}
+  m_PlaneDistance: 100
+  m_PixelPerfect: 0
+  m_ReceivesEvents: 1
+  m_OverrideSorting: 0
+  m_OverridePixelPerfect: 0
+  m_SortingBucketNormalizedSize: 0
+  m_AdditionalShaderChannelsFlag: 0
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+  m_TargetDisplay: 0
+--- !u!114 &9003201799352706256
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8963367400620327768}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_UiScaleMode: 1
+  m_ReferencePixelsPerUnit: 100
+  m_ScaleFactor: 1
+  m_ReferenceResolution: {x: 800, y: 600}
+  m_ScreenMatchMode: 0
+  m_MatchWidthOrHeight: 0
+  m_PhysicalUnit: 3
+  m_FallbackScreenDPI: 96
+  m_DefaultSpriteDPI: 96
+  m_DynamicPixelsPerUnit: 1
+  m_PresetInfoIsWorld: 0
 --- !u!1 &8963367400726256427
 GameObject:
   m_ObjectHideFlags: 0

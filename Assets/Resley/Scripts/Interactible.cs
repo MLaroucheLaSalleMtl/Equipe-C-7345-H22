@@ -24,10 +24,10 @@ public class Interactible : MonoBehaviour
         if (isFocus && !hasInteracted /*&& Input.GetKey(rightMouse)*/)
         {
             float distance = Vector3.Distance(player.position, interationTransform.position);
-            if (distance <= radius)
+            if (!hasInteracted && distance <= radius)
             {
-                Interact();
                 hasInteracted = true;
+                Interact();
             }
         }
     }
@@ -50,6 +50,7 @@ public class Interactible : MonoBehaviour
     {
         if (interationTransform == null)
             interationTransform = transform;
+
 
         Gizmos.color = Color.blue;
         Gizmos.DrawWireSphere(interationTransform.position,radius);

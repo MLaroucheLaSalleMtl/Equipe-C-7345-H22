@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.EventSystems;
 
 public class Player : MonoBehaviour
 {
@@ -24,6 +25,9 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
+        if (EventSystem.current.IsPointerOverGameObject())
+            return;
+
         if (Input.GetMouseButtonDown(0))
         {
             Ray myRay = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -60,12 +64,12 @@ public class Player : MonoBehaviour
 
     }
 
-    public void FollowTarget (Interactible newFocus)
+    public void FollowTarget (Interactible newTarget)
     {
-        myAgent.stoppingDistance = newFocus.radius * .8f;
+        myAgent.stoppingDistance = newTarget.radius * .8f;
         myAgent.updateRotation = false;
 
-        target = newFocus.interationTransform;
+        target = newTarget.interationTransform;
         
     }
 

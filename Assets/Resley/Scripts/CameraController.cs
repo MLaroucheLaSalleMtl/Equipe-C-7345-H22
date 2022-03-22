@@ -10,7 +10,7 @@ public class CameraController : MonoBehaviour
 
     //Variables de Camera
     public float cameraHeight = 1.75f, cameraMaxDistance = 25;
-    float cameraMAxTilt = 90;
+    float cameraMAxTilt = 80;
     [Range(0, 4)]
     public float cameraSpeed = 2;
     float currentPan, currentTilt = 10, currentDistance = 5;
@@ -39,8 +39,8 @@ public class CameraController : MonoBehaviour
     void Update()
     {
         if (!Input.GetKey(leftMouse) && !Input.GetKey(rightMouse) && !Input.GetKey(middleMouse))
-            cameraState = CameraState.cameraNone;
-        else if (Input.GetKey(rightMouse))
+            cameraState = CameraState.cameraRun;
+        else if (Input.GetKeyDown(rightMouse))
             cameraState = CameraState.cameraRotate;
 
         CameraInputs();
@@ -56,10 +56,10 @@ public class CameraController : MonoBehaviour
         if(cameraState != CameraState.cameraNone)
         {
             if (cameraState == CameraState.cameraRotate)
-                currentPan += Input.GetAxis("Mouse X") * cameraSpeed;
-
-            currentTilt -= Input.GetAxis("Mouse Y") * cameraSpeed;
-            currentTilt = Mathf.Clamp(currentTilt,-cameraMAxTilt, cameraMAxTilt);
+                currentPan -= Input.GetAxis("Mouse X") * cameraSpeed;
+            if (cameraState == CameraState.cameraRotate)
+                currentTilt -= Input.GetAxis("Mouse Y") * cameraSpeed;
+            currentTilt = Mathf.Clamp(currentTilt,-0, cameraMAxTilt);
         }
 
         currentDistance -= Input.GetAxis("Mouse ScrollWheel") * 2;

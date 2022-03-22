@@ -2,15 +2,22 @@ using UnityEngine;
 
 public class PickItem : Interactible
 {
+    public Item item;
+
     public override void Interact()
     {
         base.Interact();
 
-        void PickUp ()
-        {
-            Debug.Log("Item picked");
-
-            Destroy(gameObject);
-        }
+        PickUp();
     }
+    void PickUp ()
+    {
+
+        Debug.Log("Picking up" + item.name);
+        bool wasPickedUp = Inventory.instance.Add(item);
+
+        if (wasPickedUp)
+        Destroy(gameObject);
+    }
+    
 }
