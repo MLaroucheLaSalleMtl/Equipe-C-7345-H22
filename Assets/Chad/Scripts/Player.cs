@@ -15,8 +15,7 @@ public class Player : MonoBehaviour
 
     Camera cam;
 
-    
-
+   
     void Start()
     {
         myAgent = GetComponent<NavMeshAgent>();

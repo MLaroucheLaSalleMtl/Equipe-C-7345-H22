@@ -6,6 +6,7 @@ using UnityEngine;
 public class Equipment : Item
 {
     public EquimepentSlot equipSlot;
+    public SkinnedMeshRenderer mesh;
 
     public int armorModifier;
     public int damageModifier;

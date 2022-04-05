@@ -10,6 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 8317051681082450470}
   - component: {fileID: 8995726315577242266}
+  - component: {fileID: 1711789091356107042}
+  - component: {fileID: 946600759976395617}
+  - component: {fileID: 6938330631924735109}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -46,3 +49,48 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   items: []
   space: 20
+--- !u!114 &1711789091356107042
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1853806424198944298}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a42a88204df19354b9d4557ec00a3584, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slime: {fileID: 1090219386143568, guid: a817c29ea6847604bb2c6c51d9a74bf1, type: 3}
+  xPos: 0
+  zPos: 0
+  yPos: 0
+  enemyCount: 0
+--- !u!114 &946600759976395617
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1853806424198944298}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 479ec1b60f9026247afb1f56eb7b7b49, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DirectionLight: {fileID: 0}
+  Preset: {fileID: 11400000, guid: eeadf50ab5948294fba6e25db557d50c, type: 2}
+  TimeOfDay: 12
+--- !u!114 &6938330631924735109
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1853806424198944298}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2439462cde03f84187c5545baf93809, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetMesh: {fileID: 0}

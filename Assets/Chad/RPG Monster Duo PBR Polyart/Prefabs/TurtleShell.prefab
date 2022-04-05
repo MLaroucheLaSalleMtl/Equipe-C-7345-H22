@@ -849,6 +849,7 @@ GameObject:
   - component: {fileID: 6446518191424599454}
   - component: {fileID: 7797346980489726327}
   - component: {fileID: 9205643926846888319}
+  - component: {fileID: 8080607500153167579}
   m_Layer: 0
   m_Name: TurtleShell
   m_TagString: Enemy
@@ -906,7 +907,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1dbdf21df748f2b4093a87ee64c1add4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
+  player: {fileID: 700179787733540217, guid: 9c48625e9074a954f8725784be3493d2, type: 3}
 --- !u!114 &6446518191424599454
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -952,6 +953,20 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.4914609, y: 1.1485116, z: 1}
   m_Center: {x: 0.033088177, y: 0.5434133, z: -3.9024284e-10}
+--- !u!114 &8080607500153167579
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1837317425425208}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2eea4e04f86ff849985769c312f42a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  radius: 3
+  interationTransform: {fileID: 4882590064214274}
 --- !u!1 &1914324128724412
 GameObject:
   m_ObjectHideFlags: 0
