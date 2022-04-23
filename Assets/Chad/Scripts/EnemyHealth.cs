@@ -29,6 +29,8 @@ public class EnemyHealth : MonoBehaviour
         if (health <= 0)
         {
             QuestManager.questManager.AddQuestItem("Kill slimes", 1);
+            FindObjectOfType<PlayerStatuts>().AddExp();
+
             Destroy(gameObject);
         }
 
@@ -43,7 +45,7 @@ public class EnemyHealth : MonoBehaviour
         {
             if (health > 0)
             {
-                health -= 25f;
+                health -= 15;
             }
         }
     }
@@ -52,9 +54,9 @@ public class EnemyHealth : MonoBehaviour
         return health / maxHealth;
     }
 
-    public void TakeDamage(float damage)
+    public void TakeDamage(int damage)
     {
-        health -= damage;
+        health -= 15;
     }
 
     public void SetMaxHealth()

@@ -9,7 +9,7 @@ public class ParticleProjectile : MonoBehaviour
 
     public GameObject spark;
 
-    public float damage = 50f;
+    public int damage = 25;
 
     //public float attackSpeed = 1f;
     //private float attackCooldown = 0f;

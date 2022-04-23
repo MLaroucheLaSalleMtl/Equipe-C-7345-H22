@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class PlayerHealthBar : MonoBehaviour
 {
-    public PlayerHealth PlayerHealth;
+    public PlayerStatuts playerStatuts;
     public Image fillImage;
     public Slider slider;
 
@@ -26,8 +26,8 @@ public class PlayerHealthBar : MonoBehaviour
             fillImage.enabled = true;
         }
 
-        float fillValue = PlayerHealth.health / PlayerHealth.maxHealth;
-        if (fillValue <= slider.maxValue / 15)
+        float fillValue = playerStatuts.currentHp / playerStatuts.maxHp;
+        if (fillValue <= slider.maxValue / 30)
         {
             fillImage.color = Color.yellow;
         }

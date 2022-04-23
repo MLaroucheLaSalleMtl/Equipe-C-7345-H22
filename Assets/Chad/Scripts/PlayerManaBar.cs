@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class PlayerManaBar : MonoBehaviour
 {
-    public PlayerMana PlayerMana;
+    public PlayerStatuts playerStatuts;
     public Image fillImage;
     public Slider slider;
 
@@ -26,7 +26,7 @@ public class PlayerManaBar : MonoBehaviour
             fillImage.enabled = true;
         }
 
-        float fillValue = PlayerMana.mana / PlayerMana.maxMana;
+        float fillValue = playerStatuts.currentMp / playerStatuts.maxMp;
         if (fillValue <= slider.maxValue / 15)
         {
             fillImage.color = Color.yellow;

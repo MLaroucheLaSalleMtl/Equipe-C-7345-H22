@@ -23,7 +23,7 @@ public class EnemySpawner : MonoBehaviour
             zPos = Random.Range(160, 245);
             yPos = Random.Range(3, 5);
             Instantiate(slime, new Vector3(xPos, yPos, zPos), Quaternion.identity);
-            yield return new WaitForSeconds(20);
+            yield return new WaitForSeconds(12);
             enemyCount += 1;
         }
     }

@@ -52,10 +52,10 @@ MonoBehaviour:
     hint: Kill three slimes
     congraluation: 'Congraluation warrior ! '
     summary: 
-    nextQuest: 0
+    nextQuest: 2
     questObjective: Kill slimes
     questObjectiveCount: 0
-    questObjectiveRequirement: 3
+    questObjectiveRequirement: 5
     expReward: 0
     goldReward: 0
     itemReward: 

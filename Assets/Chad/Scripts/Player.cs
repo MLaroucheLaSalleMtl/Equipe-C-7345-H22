@@ -15,7 +15,10 @@ public class Player : MonoBehaviour
 
     Camera cam;
 
-   
+    public GameObject targetDest;
+
+    
+
     void Start()
     {
         myAgent = GetComponent<NavMeshAgent>();
@@ -34,13 +37,14 @@ public class Player : MonoBehaviour
 
             if (Physics.Raycast(myRay, out hitInfo, 100, whatCanBeClickedOn))
             {
+                //targetDest.transform.position = hitInfo.point;
                 myAgent.SetDestination(hitInfo.point);
                 RemoveFocus();
             }
         }
 
 
-        if (Input.GetMouseButtonDown(1))
+        if (Input.GetMouseButtonDown(0))
         {
             Ray myRay = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hitInfo;

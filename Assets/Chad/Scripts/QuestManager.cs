@@ -56,7 +56,7 @@ public class QuestManager : MonoBehaviour
                     //CompleteQuest(NPCQuestObject.receivableQuestIDs[j]);
                     // Quest UI Manager
                     QuestUIManager.uiManager.questRunning = true;
-                    QuestUIManager.uiManager.activeQuests.Add(questList[i]);
+                    QuestUIManager.uiManager.activeQuests.Add(currentQuestList[i]);
                 }
             }
         }
